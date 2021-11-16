@@ -1,0 +1,99 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /testSpring
+
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      connection-test-query: SELECT 1 FROM DUAL
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: SpringBootDemoHikariCP
+      max-lifetime: 60000
+      connection-timeout: 30000
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+    open-in-view: true
+
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
+  servlet:
+    multipart:
+      enabled: true
+      location: /Users/eddieliao/Desktop/java/testSpring/src/main/resources/uploads
+      file-size-threshold: 5MB
+      max-file-size: 20MB
+  redis:
+    host: localhost
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+  cache:
+    type: redis
+
+logging:
+  level:
+    com.xkcoding: debug
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.eddie.testspring.entity
+
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+  not-empty: true
+  style: camelhump
+  wrap-keyword: "`{0}`"
+  safe-delete: true
+  safe-update: true
+  identity: MYSQL
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:
+pagehelper:
+  auto-dialect: true
+  helper-dialect: mysql
+  reasonable: true
+  params: count=countSql
+
+qiniu:
+  accessKey: xxxx
+  secretKey: xxxx
+  bucket: xxxx
+  prefix: xxx
+
+
+
