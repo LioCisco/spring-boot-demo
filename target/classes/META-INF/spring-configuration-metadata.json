@@ -1,0 +1,46 @@
+{
+  "groups": [
+    {
+      "name": "custom.config",
+      "type": "com.eddie.testspring.config.CustomConfig",
+      "sourceType": "com.eddie.testspring.config.CustomConfig"
+    },
+    {
+      "name": "jwt.config",
+      "type": "com.eddie.testspring.config.JwtConfig",
+      "sourceType": "com.eddie.testspring.config.JwtConfig"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.eddie.testspring.config.JpaConfig",
+      "sourceMethod": "dataSource()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "custom.config.ignores",
+      "type": "com.eddie.testspring.config.IgnoreConfig",
+      "sourceType": "com.eddie.testspring.config.CustomConfig"
+    },
+    {
+      "name": "jwt.config.key",
+      "type": "java.lang.String",
+      "sourceType": "com.eddie.testspring.config.JwtConfig",
+      "defaultValue": "eddie.liao"
+    },
+    {
+      "name": "jwt.config.remember",
+      "type": "java.lang.Integer",
+      "sourceType": "com.eddie.testspring.config.JwtConfig",
+      "defaultValue": 604800000
+    },
+    {
+      "name": "jwt.config.ttl",
+      "type": "java.lang.Integer",
+      "sourceType": "com.eddie.testspring.config.JwtConfig",
+      "defaultValue": 600000
+    }
+  ],
+  "hints": []
+}

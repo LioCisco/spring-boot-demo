@@ -1,24 +1,17 @@
 package com.eddie.testspring.controller;
 
-import com.eddie.testspring.entity.User;
+import com.eddie.testspring.entity.UserBackend;
 import com.eddie.testspring.mapper.UserMapper;
-import com.eddie.testspring.model.ApiResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.xml.ws.RequestWrapper;
 import java.io.Serializable;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -46,7 +39,7 @@ public class UserController {
     @RequestMapping(value = "selectAllUser" )
     @ResponseBody
     public String selectAllUser(){
-        List<User> userList = userMapper.selectAllUser();
+        List<UserBackend> userList = userMapper.selectAllUser();
         log.info("userList {}" ,userList);
         return  "selectAllUser";
 
@@ -59,8 +52,8 @@ public class UserController {
         String orderBy = "id desc";
         int count = userMapper.selectCount(null);
         PageHelper.startPage(currentPage,pageSize,orderBy);
-        List<User> users = userMapper.selectAll();
-        PageInfo<User> userPageInfo = new PageInfo<>(users);
+        List<UserBackend> users = userMapper.selectAll();
+        PageInfo<UserBackend> userPageInfo = new PageInfo<>(users);
         log.info("userListPage {}",userPageInfo);
     }
     @RequestMapping(value = "redisGet")

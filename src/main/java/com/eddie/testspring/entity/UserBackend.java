@@ -22,7 +22,7 @@ import java.util.Date;
 @Entity
 @Table(name = "orm_user")
 @ToString(callSuper = true)
-public class User extends AbstractAuditModel {
+public class UserBackend extends AbstractAuditModel {
     private String name;
 
     private String password;

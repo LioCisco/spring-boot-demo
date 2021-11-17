@@ -1,5 +1,6 @@
 package com.eddie.testspring.model;
 
+import com.eddie.testspring.common.IStatus;
 import com.eddie.testspring.constant.Status;
 import com.eddie.testspring.exception.BaseException;
 import org.checkerframework.checker.units.qual.A;
@@ -96,7 +97,7 @@ public class ApiResponse {
      * @param data   返回数据
      * @return ApiResponse
      */
-    public static ApiResponse ofStatus(Status status, Object data) {
+    public static ApiResponse ofStatus(IStatus status, Object data) {
         return of(status.getCode(), status.getMessage(), data);
     }
 

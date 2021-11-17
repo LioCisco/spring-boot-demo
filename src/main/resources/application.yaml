@@ -20,6 +20,8 @@ spring:
       pool-name: SpringBootDemoHikariCP
       max-lifetime: 60000
       connection-timeout: 30000
+  mvc:
+    throw-exception-if-no-handler-found: true
   jpa:
     show-sql: true
     hibernate:
@@ -56,7 +58,7 @@ spring:
 
 logging:
   level:
-    com.xkcoding: debug
+    com.eddie: debug
     org.hibernate.SQL: debug
     org.hibernate.type: trace
 
@@ -95,5 +97,18 @@ qiniu:
   bucket: xxxx
   prefix: xxx
 
+jwt:
+  config:
+    key: eddie.liao
+    ttl: 600000
+    remember: 604800000
 
+custom:
+  config:
+    ignores:
+      post:
+        - "/api/auth/login"
+        - "/api/auth/logout"
+      pattern:
+        - "/test/*"
 

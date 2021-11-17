@@ -38,7 +38,7 @@ public class Department extends AbstractAuditModel {
     private Collection<Department> children;
 
     @ManyToMany(mappedBy = "departmentList")
-    private Collection<User> userList;
+    private Collection<UserBackend> userList;
 
 
 }

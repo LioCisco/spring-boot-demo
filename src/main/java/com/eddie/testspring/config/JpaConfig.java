@@ -1,6 +1,5 @@
 package com.eddie.testspring.config;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
