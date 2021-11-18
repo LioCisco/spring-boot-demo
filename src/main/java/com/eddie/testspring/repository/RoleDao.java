@@ -19,5 +19,5 @@ public interface RoleDao extends JpaRepository<Role,Long>, JpaSpecificationExecu
             "where sec_user.id =sec_user_role.user_id" +
             "and sec_role.id = sec_user_role.role.id" +
             "and sec_user.id = :userId",nativeQuery = true)
-    List<Role> selectByUserId(@Param("userId") Long userID);
+    List<Role> selectByUserId(@Param("userId") Long userId);
 }

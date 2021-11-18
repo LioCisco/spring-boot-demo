@@ -19,7 +19,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "UserBackend")
 @Table(name = "orm_user")
 @ToString(callSuper = true)
 public class UserBackend extends AbstractAuditModel {
